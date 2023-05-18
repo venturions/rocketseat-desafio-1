@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  grid-template-columns: 1fr 46rem 1fr;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: calc(0px - 1.5rem - 6px);
+  padding: 0 1rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 46rem;
+}

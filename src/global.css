@@ -3,7 +3,7 @@
   --purple-dark: #5e60ce;
 
   --blue: #4ea8de;
-  --blu-dark: #1e6f9f;
+  --blue-dark: #1e6f9f;
 
   --gray-100: #f2f2f2;
   --gray-200: #d9d9d9;
@@ -15,11 +15,6 @@
   --danger: #e25858;
 }
 
-/* :focus {
-    outline: transparent;
-    box-shadow: 0 0 0 2px var(--green-500);
-  } */
-
 * {
   margin: 0;
   padding: 0;
@@ -28,8 +23,8 @@
 }
 
 body {
-  background: var(--gray-900);
-  color: var(--gray-300);
+  background: var(--gray-600);
+  color: var(--gray-100);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,5 +34,5 @@ textarea,
 button {
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
