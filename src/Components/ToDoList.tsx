@@ -1,0 +1,63 @@
+import { TaskProps } from "../App";
+import { Counter } from "./Counter";
+import { Task } from "./Task";
+import styles from "./ToDoList.module.css";
+
+interface ToDoListProps {
+  tasks: Array<TaskProps>;
+  onDeleteTask: (taskToDelete: string) => void;
+  onChangeTaskStatus: (taskToChange: TaskProps) => void;
+}
+
+export function ToDoList({
+  tasks,
+  onDeleteTask,
+  onChangeTaskStatus,
+}: ToDoListProps) {
+  const numberOfCompletedTasks = tasks.filter(
+    (item) => item.completed === true
+  ).length;
+
+  return (
+    <>
+      <main className={styles.toDoList}>
+        <header className={styles.header}>
+          <strong className={styles.createdTasks}>
+            Tarefas criadas
+            <Counter counterType="created" count={tasks.length} />
+          </strong>
+          <strong className={styles.doneTasks}>
+            Concluídas{" "}
+            <Counter
+              counterType="finished"
+              count={numberOfCompletedTasks}
+              maxCount={tasks?.length}
+            />
+          </strong>
+        </header>
+        {tasks.length > 0 ? (
+          <>
+            <div className={styles.taskList}>
+              {tasks.map((task) => {
+                return (
+                  <Task
+                    key={task.title}
+                    task={task}
+                    onDeleteTask={onDeleteTask}
+                    onChangeTaskStatus={onChangeTaskStatus}
+                  />
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <div className={styles.content}>
+            <img src="src\assets\clipboard.svg" alt="Clipboard"></img>
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </div>
+        )}
+      </main>
+    </>
+  );
+}

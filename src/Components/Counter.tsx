@@ -1,0 +1,21 @@
+import styles from "./Counter.module.css";
+
+interface CounterProps {
+  counterType: "created" | "finished";
+  count: number;
+  maxCount?: number;
+}
+
+export function Counter({ count, counterType, maxCount }: CounterProps) {
+  return (
+    <div className={styles.counter}>
+      {counterType === "created" ? (
+        <p>{count}</p>
+      ) : (
+        <p>
+          {count} de {maxCount}
+        </p>
+      )}
+    </div>
+  );
+}
