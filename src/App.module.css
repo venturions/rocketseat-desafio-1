@@ -4,10 +4,18 @@
   gap: 2rem;
   margin-top: calc(0px - 1.5rem - 6px);
   padding: 0 1rem;
-  
 }
 
 .wrapper {
   width: 100%;
   max-width: 46rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
 }
