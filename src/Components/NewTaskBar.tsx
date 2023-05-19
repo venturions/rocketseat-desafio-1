@@ -11,17 +11,23 @@ export function NewTaskBar({ addTask }: NewTaskBarProps) {
   const [taskDescription, setTaskDescription] = useState("");
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    event.target.setCustomValidity("");
-    setTaskDescription(event.target.value);
+    const inputValue = event.target.value;
+    setTaskDescription(inputValue);
+
+    if (inputValue.trim() === "" && inputValue !== "") {
+      event.target.setCustomValidity(
+        "O campo não pode ser composto apenas por espaços em branco."
+      );
+    } else {
+      event.target.setCustomValidity("");
+    }
   }
 
   function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity("Esse campo é obrigatório!");
-    setTaskDescription(event.target.value);
   }
 
   function handleAddTask(event: FormEvent) {
-    console.log({ title: taskDescription, completed: false });
     event.preventDefault();
     addTask({ title: taskDescription, completed: false });
     setTaskDescription("");

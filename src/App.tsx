@@ -15,7 +15,6 @@ function App() {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
 
   function addTask(newTask: TaskProps) {
-    console.log(newTask);
     setTasks([...tasks, newTask]);
   }
 
