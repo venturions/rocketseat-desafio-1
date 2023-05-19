@@ -9,7 +9,7 @@ interface CounterProps {
 export function Counter({ count, counterType, maxCount }: CounterProps) {
   return (
     <div className={styles.counter}>
-      {counterType === "created" ? (
+      {counterType === "created" || maxCount === 0 ? (
         <p>{count}</p>
       ) : (
         <p>
