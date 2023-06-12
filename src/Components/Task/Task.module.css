@@ -2,7 +2,7 @@
   display: grid;
   /* flex-direction: row; */
   grid-template-columns: 24px 10fr 24px;
-  align-items: flex-start;
+  align-items: center;
   padding: 16px;
   gap: 12px;
 

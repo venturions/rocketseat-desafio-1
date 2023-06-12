@@ -1,9 +1,11 @@
-import { Header } from "./Components/Header";
+
 import styles from "./App.module.css";
+import { Header } from "./Components/Header/Header";
+import { NewTaskBar } from "./Components/NewTaskBar/NewTaskBar";
+import { ToDoList } from "./Components/ToDoList/ToDoList";
 
 import "./global.css";
-import { NewTaskBar } from "./Components/NewTaskBar";
-import { ToDoList } from "./Components/ToDoList";
+
 import { useState } from "react";
 
 export interface TaskProps {

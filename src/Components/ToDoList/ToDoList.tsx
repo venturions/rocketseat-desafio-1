@@ -1,6 +1,7 @@
-import { TaskProps } from "../App";
-import { Counter } from "./Counter";
-import { Task } from "./Task";
+
+import { TaskProps } from "../../App";
+import { Counter } from "../Counter/Counter";
+import { Task } from "../Task/Task";
 import styles from "./ToDoList.module.css";
 
 interface ToDoListProps {

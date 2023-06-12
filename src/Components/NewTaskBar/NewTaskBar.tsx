@@ -1,7 +1,7 @@
 import { PlusCircle } from "phosphor-react";
 import styles from "./NewTaskBar.module.css";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
-import { TaskProps } from "../App";
+import { TaskProps } from "../../App";
 
 interface NewTaskBarProps {
   addTask: (task: TaskProps) => void;
