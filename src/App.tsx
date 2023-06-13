@@ -1,42 +1,41 @@
+import styles from './App.module.css'
+import { Header } from './Components/Header/Header'
+import { NewTaskBar } from './Components/NewTaskBar/NewTaskBar'
+import { ToDoList } from './Components/ToDoList/ToDoList'
 
-import styles from "./App.module.css";
-import { Header } from "./Components/Header/Header";
-import { NewTaskBar } from "./Components/NewTaskBar/NewTaskBar";
-import { ToDoList } from "./Components/ToDoList/ToDoList";
+import './global.css'
 
-import "./global.css";
-
-import { useState } from "react";
+import { useState } from 'react'
 
 export interface TaskProps {
-  title: string;
-  completed: boolean;
+  title: string
+  completed: boolean
 }
 
 function App() {
-  const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [tasks, setTasks] = useState<TaskProps[]>([])
 
   function addTask(newTask: TaskProps) {
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, newTask])
   }
 
   function deleteTask(taskToDelete: string) {
     const tasksWithoutDeletedOne = tasks.filter((task) => {
-      return task.title !== taskToDelete;
-    });
-    setTasks(tasksWithoutDeletedOne);
+      return task.title !== taskToDelete
+    })
+    setTasks(tasksWithoutDeletedOne)
   }
 
   function changeTaskStatus(taskToChange: TaskProps) {
     const updatedTasks = tasks.map((task) => {
       if (task.title === taskToChange.title) {
-        return { title: task.title, completed: !task.completed };
+        return { title: task.title, completed: !task.completed }
       } else {
-        return task;
+        return task
       }
-    });
+    })
 
-    setTasks(updatedTasks);
+    setTasks(updatedTasks)
   }
 
   return (
@@ -53,7 +52,7 @@ function App() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
