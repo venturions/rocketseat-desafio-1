@@ -1,36 +1,36 @@
-import { PlusCircle } from "phosphor-react";
-import styles from "./NewTaskBar.module.css";
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
-import { TaskProps } from "../../App";
+import { PlusCircle } from 'phosphor-react'
+import styles from './NewTaskBar.module.css'
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
+import { TaskProps } from '../../App'
 
 interface NewTaskBarProps {
-  addTask: (task: TaskProps) => void;
+  addTask: (task: TaskProps) => void
 }
 
 export function NewTaskBar({ addTask }: NewTaskBarProps) {
-  const [taskDescription, setTaskDescription] = useState("");
+  const [taskDescription, setTaskDescription] = useState('')
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    const inputValue = event.target.value;
-    setTaskDescription(inputValue);
+    const inputValue = event.target.value
+    setTaskDescription(inputValue)
 
-    if (inputValue.trim() === "" && inputValue !== "") {
+    if (inputValue.trim() === '' && inputValue !== '') {
       event.target.setCustomValidity(
-        "O campo não pode ser composto apenas por espaços em branco."
-      );
+        'O campo não pode ser composto apenas por espaços em branco.',
+      )
     } else {
-      event.target.setCustomValidity("");
+      event.target.setCustomValidity('')
     }
   }
 
   function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
-    event.target.setCustomValidity("Esse campo é obrigatório!");
+    event.target.setCustomValidity('Esse campo é obrigatório!')
   }
 
   function handleAddTask(event: FormEvent) {
-    event.preventDefault();
-    addTask({ title: taskDescription, completed: false });
-    setTaskDescription("");
+    event.preventDefault()
+    addTask({ title: taskDescription, completed: false })
+    setTaskDescription('')
   }
 
   return (
@@ -48,5 +48,5 @@ export function NewTaskBar({ addTask }: NewTaskBarProps) {
         </button>
       </div>
     </form>
-  );
+  )
 }
