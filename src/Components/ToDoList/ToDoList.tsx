@@ -53,7 +53,7 @@ export function ToDoList({
           </>
         ) : (
           <div className={styles.content}>
-            <img src={ClipboardImage} alt="Imagem de uma prancheta"></img>
+            <img src={ClipboardImage} alt="Imagem de uma prancheta" />
             <strong>Você ainda não tem tarefas cadastradas</strong>
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
