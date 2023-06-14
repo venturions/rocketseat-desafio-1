@@ -1,4 +1,4 @@
-@import url('../src/assets/vector.svg');
+@import url('src/assets/vector.svg');
 
 .task {
   display: grid;
