@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Header } from './Header'
 
 it('should render a header html element', () => {
@@ -8,7 +8,7 @@ it('should render a header html element', () => {
 })
 
 it('should render a image', () => {
-  const { getByAltText } = render(<Header />)
-  const image = getByAltText('Logo To-Do List')
+  render(<Header />)
+  const image = screen.getByTestId('Logo To-Do List')
   expect(image).toBeInTheDocument()
 })
