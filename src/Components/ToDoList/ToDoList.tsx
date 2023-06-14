@@ -1,13 +1,12 @@
+import { TaskProps } from '../../App'
+import { Counter } from '../Counter/Counter'
+import { Task } from '../Task/Task'
+import styles from './ToDoList.module.css'
 
-import { TaskProps } from "../../App";
-import { Counter } from "../Counter/Counter";
-import { Task } from "../Task/Task";
-import styles from "./ToDoList.module.css";
-
-interface ToDoListProps {
-  tasks: Array<TaskProps>;
-  onDeleteTask: (taskToDelete: string) => void;
-  onChangeTaskStatus: (taskToChange: TaskProps) => void;
+export interface ToDoListProps {
+  tasks: Array<TaskProps>
+  onDeleteTask: (taskToDelete: string) => void
+  onChangeTaskStatus: (taskToChange: TaskProps) => void
 }
 
 export function ToDoList({
@@ -16,8 +15,8 @@ export function ToDoList({
   onChangeTaskStatus,
 }: ToDoListProps) {
   const numberOfCompletedTasks = tasks.filter(
-    (item) => item.completed === true
-  ).length;
+    (item) => item.completed === true,
+  ).length
 
   return (
     <>
@@ -28,7 +27,7 @@ export function ToDoList({
             <Counter counterType="created" count={tasks.length} />
           </strong>
           <strong className={styles.doneTasks}>
-            Concluídas{" "}
+            Concluídas{' '}
             <Counter
               counterType="finished"
               count={numberOfCompletedTasks}
@@ -47,7 +46,7 @@ export function ToDoList({
                     onDeleteTask={onDeleteTask}
                     onChangeTaskStatus={onChangeTaskStatus}
                   />
-                );
+                )
               })}
             </div>
           </>
@@ -60,5 +59,5 @@ export function ToDoList({
         )}
       </main>
     </>
-  );
+  )
 }
