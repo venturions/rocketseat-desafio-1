@@ -2,6 +2,7 @@ import { TaskProps } from '../../App'
 import { Counter } from '../Counter/Counter'
 import { Task } from '../Task/Task'
 import styles from './ToDoList.module.css'
+import ClipboardImage from '../../assets/clipboard.svg'
 
 export interface ToDoListProps {
   tasks: Array<TaskProps>
@@ -52,7 +53,7 @@ export function ToDoList({
           </>
         ) : (
           <div className={styles.content}>
-            <img src="src\assets\clipboard.svg" alt="Clipboard"></img>
+            <img src={ClipboardImage} alt="Imagem de uma prancheta"></img>
             <strong>Você ainda não tem tarefas cadastradas</strong>
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
