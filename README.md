@@ -33,7 +33,7 @@ Durante o desenvolvimento deste projeto, foram relembrados e aplicados os seguin
 Clone o projeto utilizando o comando
 
 ```bash
-git clone https://github.com/venturions/rocketseat-ignite-desafio-1.git
+git clone https://github.com/venturions/toDoList-react.git
 ```
 
 <br>
