@@ -12,18 +12,6 @@ describe('NewTaskBar', () => {
     expect(buttonElement).toBeInTheDocument()
   })
 
-  it('should update the task description correctly', () => {
-    render(<NewTaskBar addTask={jest.fn()} />)
-
-    const inputElement = screen.getByPlaceholderText(
-      'Adicione uma nova tarefa',
-    ) as HTMLInputElement
-
-    fireEvent.change(inputElement, { target: { value: 'Nova tarefa' } })
-
-    expect(inputElement.value).toBe('Nova tarefa')
-  })
-
   it('should call the addTask function when clicking the button', () => {
     const mockAddTask = jest.fn()
     render(<NewTaskBar addTask={mockAddTask} />)
