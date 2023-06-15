@@ -2,33 +2,33 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { Task } from './Task'
 
 describe('Task', () => {
-  const mockTask = {
+  const task = {
     title: 'Task 1',
     completed: false,
   }
 
-  const mockDeleteTask = jest.fn()
-  const mockChangeTaskStatus = jest.fn()
+  const deleteTask = jest.fn()
+  const changeTaskStatus = jest.fn()
 
   it('should render task title', () => {
     render(
       <Task
-        task={mockTask}
-        onDeleteTask={mockDeleteTask}
-        onChangeTaskStatus={mockChangeTaskStatus}
+        task={task}
+        onDeleteTask={deleteTask}
+        onChangeTaskStatus={changeTaskStatus}
       />,
     )
 
-    const taskTitleElement = screen.getByText(mockTask.title)
+    const taskTitleElement = screen.getByText(task.title)
     expect(taskTitleElement).toBeInTheDocument()
   })
 
   it('should render task checkbox', () => {
     render(
       <Task
-        task={mockTask}
-        onDeleteTask={mockDeleteTask}
-        onChangeTaskStatus={mockChangeTaskStatus}
+        task={task}
+        onDeleteTask={deleteTask}
+        onChangeTaskStatus={changeTaskStatus}
       />,
     )
 
@@ -39,16 +39,16 @@ describe('Task', () => {
 
     fireEvent.click(checkboxElement)
     expect(checkboxElement.checked).toBe(true)
-    expect(mockChangeTaskStatus).toHaveBeenCalledTimes(1)
-    expect(mockChangeTaskStatus).toHaveBeenCalledWith(mockTask)
+    expect(changeTaskStatus).toHaveBeenCalledTimes(1)
+    expect(changeTaskStatus).toHaveBeenCalledWith(task)
   })
 
   it('should render delete button and calls deleteTask function', () => {
     render(
       <Task
-        task={mockTask}
-        onDeleteTask={mockDeleteTask}
-        onChangeTaskStatus={mockChangeTaskStatus}
+        task={task}
+        onDeleteTask={deleteTask}
+        onChangeTaskStatus={changeTaskStatus}
       />,
     )
 
@@ -58,18 +58,18 @@ describe('Task', () => {
     expect(deleteButtonElement).toBeInTheDocument()
 
     fireEvent.click(deleteButtonElement)
-    expect(mockDeleteTask).toHaveBeenCalledTimes(1)
-    expect(mockDeleteTask).toHaveBeenCalledWith(mockTask.title)
+    expect(deleteTask).toHaveBeenCalledTimes(1)
+    expect(deleteTask).toHaveBeenCalledWith(task.title)
   })
 
   it('should check the checkbox', () => {
-    const completedTask = { ...mockTask, completed: false }
+    const completedTask = { ...task, completed: false }
 
     render(
       <Task
         task={completedTask}
-        onDeleteTask={mockDeleteTask}
-        onChangeTaskStatus={mockChangeTaskStatus}
+        onDeleteTask={deleteTask}
+        onChangeTaskStatus={changeTaskStatus}
       />,
     )
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement
@@ -79,18 +79,18 @@ describe('Task', () => {
   })
 
   it('should uncheck the checkbox', () => {
-    const completedTask = { ...mockTask, completed: true }
+    const completedTask = { ...task, completed: true }
 
     render(
       <Task
         task={completedTask}
-        onDeleteTask={mockDeleteTask}
-        onChangeTaskStatus={mockChangeTaskStatus}
+        onDeleteTask={deleteTask}
+        onChangeTaskStatus={changeTaskStatus}
       />,
     )
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement
     fireEvent.click(checkbox)
-    expect(mockChangeTaskStatus).toHaveBeenCalledTimes(1)
+    expect(changeTaskStatus).toHaveBeenCalledTimes(1)
   })
 })
