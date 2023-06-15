@@ -63,8 +63,8 @@ export function Task({
       >
         {task.title}
       </p>
-      <button title="Deletar tarefa">
-        <Trash size={24} onClick={handleDeleteTask} />
+      <button title="Deletar tarefa" onClick={handleDeleteTask}>
+        <Trash size={24} />
       </button>
     </div>
   )
